@@ -1,0 +1,35 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'com.barricator'
+version = '0.1.0'
+description = 'Barricator production-grade Java Server SDK (local evaluation, SSE sync, telemetry)'
+
+java {
+    // Build/test on JDK 21 regardless of the JDK running Gradle.
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JSON (de)serialization. HTTP/SSE use the built-in java.net.http client (no extra dep).
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+    // Logging facade only; the host app supplies the binding.
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.3'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}

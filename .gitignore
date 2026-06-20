@@ -1,0 +1,15 @@
+# Build output
+target/
+build/
+.gradle/
+/bin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.DS_Store
+*.log
