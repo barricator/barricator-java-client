@@ -1,7 +1,24 @@
 # barricator-java-client
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.barricator/barricator-java-client?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.barricator/barricator-java-client)
+
 Production-grade **Java Server SDK** for Barricator. Java 21, Jackson + the JDK `HttpClient` (no
 heavy transitive deps).
+
+## Install
+
+Gradle:
+```groovy
+implementation 'io.github.barricator:barricator-java-client:0.1.0'
+```
+Maven:
+```xml
+<dependency>
+  <groupId>io.github.barricator</groupId>
+  <artifactId>barricator-java-client</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
 
 ## Guarantees
 

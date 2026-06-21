@@ -1,8 +1,9 @@
 plugins {
     id 'java-library'
+    id 'com.vanniktech.maven.publish' version '0.30.0'
 }
 
-group = 'com.barricator'
+group = 'io.github.barricator'
 version = '0.1.0'
 description = 'Barricator production-grade Java Server SDK (local evaluation, SSE sync, telemetry)'
 
@@ -31,5 +32,39 @@ tasks.named('test') {
     useJUnitPlatform()
     testLogging {
         events 'passed', 'skipped', 'failed'
+    }
+}
+
+// --- Publishing to Maven Central (Central Portal) ---
+// Credentials/signing are supplied by CI as env vars (see .github/workflows/release.yml):
+//   ORG_GRADLE_PROJECT_mavenCentralUsername / ...Password   (Central Portal user token)
+//   ORG_GRADLE_PROJECT_signingInMemoryKey / ...KeyId / ...Password   (ASCII-armored GPG key)
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+    coordinates(group.toString(), 'barricator-java-client', version.toString())
+
+    pom {
+        name = 'Barricator Java Client'
+        description = project.description
+        url = 'https://github.com/barricator/barricator-java-client'
+        inceptionYear = '2026'
+        licenses {
+            license {
+                name = 'The Apache License, Version 2.0'
+                url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+            }
+        }
+        developers {
+            developer {
+                id = 'spiropulo'
+                name = 'Jorge Spiropulo'
+            }
+        }
+        scm {
+            url = 'https://github.com/barricator/barricator-java-client'
+            connection = 'scm:git:https://github.com/barricator/barricator-java-client.git'
+            developerConnection = 'scm:git:ssh://git@github.com/barricator/barricator-java-client.git'
+        }
     }
 }
