@@ -68,7 +68,7 @@ public final class BarricatorConfig {
 
     public static final class Builder {
         private final String sdkKey;
-        private String baseUrl = "https://app.barricator.io";
+        private String baseUrl = "https://app.barricator.com";
         private Duration connectTimeout = Duration.ofSeconds(10);
         private Duration metricsFlushInterval = Duration.ofSeconds(30);
         private Duration initialReconnectDelay = Duration.ofSeconds(1);

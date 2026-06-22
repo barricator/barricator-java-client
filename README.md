@@ -37,7 +37,7 @@ Maven:
 
 ```java
 try (BarricatorClient client = BarricatorClient.builder("sdk-srv-...")
-        .baseUrl("https://app.barricator.io")
+        .baseUrl("https://app.barricator.com")
         .build()) {
 
     UserContext user = UserContext.builder("user-123")
