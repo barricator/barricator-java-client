@@ -9,14 +9,14 @@ heavy transitive deps).
 
 Gradle:
 ```groovy
-implementation 'io.github.barricator:barricator-java-client:0.1.0'
+implementation 'io.github.barricator:barricator-java-client:0.1.1'
 ```
 Maven:
 ```xml
 <dependency>
   <groupId>io.github.barricator</groupId>
   <artifactId>barricator-java-client</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 

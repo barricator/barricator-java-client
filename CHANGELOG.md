@@ -6,6 +6,10 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-22
+### Changed
+- Default base URL is now `https://app.barricator.com` (was `app.barricator.io`).
+
 ## [0.1.0] - 2026-06-21
 ### Added
 - Initial public release.

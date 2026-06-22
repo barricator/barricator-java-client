@@ -33,4 +33,4 @@ jobs:
           # ASCII-armored GPG private key + its passphrase
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
-        run: ./gradlew publishToMavenCentral --no-configuration-cache --no-daemon
+        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache --no-daemon

@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'io.github.barricator'
-version = '0.1.0'
+version = '0.1.1'
 description = 'Barricator production-grade Java Server SDK (local evaluation, SSE sync, telemetry)'
 
 java {
