@@ -40,7 +40,8 @@ tasks.named('test') {
 //   ORG_GRADLE_PROJECT_mavenCentralUsername / ...Password   (Central Portal user token)
 //   ORG_GRADLE_PROJECT_signingInMemoryKey / ...KeyId / ...Password   (ASCII-armored GPG key)
 mavenPublishing {
-    publishToMavenCentral()
+    // Target the new Central Portal (central.sonatype.com), not legacy OSSRH.
+    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
     coordinates(group.toString(), 'barricator-java-client', version.toString())
 
