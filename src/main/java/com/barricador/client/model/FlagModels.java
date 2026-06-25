@@ -1,4 +1,4 @@
-package com.barricator.client.model;
+package com.barricador.client.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

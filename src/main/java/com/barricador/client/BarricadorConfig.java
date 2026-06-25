@@ -1,12 +1,12 @@
-package com.barricator.client;
+package com.barricador.client;
 
 import java.time.Duration;
 
 /**
- * Immutable SDK configuration, created via {@link BarricatorClient#builder(String)}. Sensible
+ * Immutable SDK configuration, created via {@link BarricadorClient#builder(String)}. Sensible
  * production defaults are provided; only the server SDK key is required.
  */
-public final class BarricatorConfig {
+public final class BarricadorConfig {
 
     private final String sdkKey;
     private final String baseUrl;
@@ -18,7 +18,7 @@ public final class BarricatorConfig {
     private final boolean metricsEnabled;
     private final Duration startupBootstrapTimeout;
 
-    BarricatorConfig(Builder b) {
+    BarricadorConfig(Builder b) {
         this.sdkKey = b.sdkKey;
         this.baseUrl = b.baseUrl;
         this.connectTimeout = b.connectTimeout;
@@ -68,7 +68,7 @@ public final class BarricatorConfig {
 
     public static final class Builder {
         private final String sdkKey;
-        private String baseUrl = "https://app.barricator.com";
+        private String baseUrl = "https://app.barricador.com";
         private Duration connectTimeout = Duration.ofSeconds(10);
         private Duration metricsFlushInterval = Duration.ofSeconds(30);
         private Duration initialReconnectDelay = Duration.ofSeconds(1);
@@ -79,7 +79,7 @@ public final class BarricatorConfig {
 
         Builder(String sdkKey) {
             if (sdkKey == null || sdkKey.isBlank()) {
-                throw new IllegalArgumentException("Barricator SDK key is required");
+                throw new IllegalArgumentException("Barricador SDK key is required");
             }
             this.sdkKey = sdkKey;
         }
@@ -125,13 +125,13 @@ public final class BarricatorConfig {
         }
 
         /** Builds the config only (useful for tests). */
-        public BarricatorConfig buildConfig() {
-            return new BarricatorConfig(this);
+        public BarricadorConfig buildConfig() {
+            return new BarricadorConfig(this);
         }
 
-        /** Builds the config and starts a fully-initialized {@link BarricatorClient}. */
-        public BarricatorClient build() {
-            return BarricatorClient.create(buildConfig());
+        /** Builds the config and starts a fully-initialized {@link BarricadorClient}. */
+        public BarricadorClient build() {
+            return BarricadorClient.create(buildConfig());
         }
 
         private static String stripTrailingSlash(String s) {

@@ -1,4 +1,4 @@
-package com.barricator.client.internal;
+package com.barricador.client.internal;
 
 /** Outcome of a local flag evaluation: the resolved value, the variation id, and the reason. */
 public record EvaluationResult(Object value, String variationId, String reason) {

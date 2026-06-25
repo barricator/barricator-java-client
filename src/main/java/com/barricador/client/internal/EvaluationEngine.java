@@ -1,12 +1,12 @@
-package com.barricator.client.internal;
+package com.barricador.client.internal;
 
-import com.barricator.client.UserContext;
-import com.barricator.client.model.FlagModels.Clause;
-import com.barricator.client.model.FlagModels.FeatureFlag;
-import com.barricator.client.model.FlagModels.Rollout;
-import com.barricator.client.model.FlagModels.Rule;
-import com.barricator.client.model.FlagModels.Variation;
-import com.barricator.client.model.FlagModels.WeightedVariation;
+import com.barricador.client.UserContext;
+import com.barricador.client.model.FlagModels.Clause;
+import com.barricador.client.model.FlagModels.FeatureFlag;
+import com.barricador.client.model.FlagModels.Rollout;
+import com.barricador.client.model.FlagModels.Rule;
+import com.barricador.client.model.FlagModels.Variation;
+import com.barricador.client.model.FlagModels.WeightedVariation;
 
 import java.util.List;
 import java.util.Optional;

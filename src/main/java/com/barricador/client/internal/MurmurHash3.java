@@ -1,4 +1,4 @@
-package com.barricator.client.internal;
+package com.barricador.client.internal;
 
 import java.nio.charset.StandardCharsets;
 

@@ -3,9 +3,9 @@ plugins {
     id 'com.vanniktech.maven.publish' version '0.30.0'
 }
 
-group = 'io.github.barricator'
+group = 'io.github.barricador'
 version = '0.1.1'
-description = 'Barricator production-grade Java Server SDK (local evaluation, SSE sync, telemetry)'
+description = 'Barricador production-grade Java Server SDK (local evaluation, SSE sync, telemetry)'
 
 java {
     // Build/test on JDK 21 regardless of the JDK running Gradle.
@@ -43,12 +43,12 @@ mavenPublishing {
     // Target the new Central Portal (central.sonatype.com), not legacy OSSRH.
     publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
-    coordinates(group.toString(), 'barricator-java-client', version.toString())
+    coordinates(group.toString(), 'barricador-java-client', version.toString())
 
     pom {
-        name = 'Barricator Java Client'
+        name = 'Barricador Java Client'
         description = project.description
-        url = 'https://github.com/barricator/barricator-java-client'
+        url = 'https://github.com/barricador/barricador-java-client'
         inceptionYear = '2026'
         licenses {
             license {
@@ -63,9 +63,9 @@ mavenPublishing {
             }
         }
         scm {
-            url = 'https://github.com/barricator/barricator-java-client'
-            connection = 'scm:git:https://github.com/barricator/barricator-java-client.git'
-            developerConnection = 'scm:git:ssh://git@github.com/barricator/barricator-java-client.git'
+            url = 'https://github.com/barricador/barricador-java-client'
+            connection = 'scm:git:https://github.com/barricador/barricador-java-client.git'
+            developerConnection = 'scm:git:ssh://git@github.com/barricador/barricador-java-client.git'
         }
     }
 }

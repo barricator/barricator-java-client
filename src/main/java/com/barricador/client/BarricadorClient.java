@@ -1,13 +1,13 @@
-package com.barricator.client;
+package com.barricador.client;
 
-import com.barricator.client.internal.EvaluationEngine;
-import com.barricator.client.internal.EvaluationResult;
-import com.barricator.client.internal.FlagStore;
-import com.barricator.client.internal.HttpTransport;
-import com.barricator.client.internal.MetricsBuffer;
-import com.barricator.client.internal.StreamSynchronizer;
-import com.barricator.client.model.FlagModels.BootstrapResponse;
-import com.barricator.client.model.FlagModels.FeatureFlag;
+import com.barricador.client.internal.EvaluationEngine;
+import com.barricador.client.internal.EvaluationResult;
+import com.barricador.client.internal.FlagStore;
+import com.barricador.client.internal.HttpTransport;
+import com.barricador.client.internal.MetricsBuffer;
+import com.barricador.client.internal.StreamSynchronizer;
+import com.barricador.client.model.FlagModels.BootstrapResponse;
+import com.barricador.client.model.FlagModels.FeatureFlag;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +23,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * The Barricator Java Server SDK entrypoint. Build one per process via
- * {@code BarricatorClient.builder(sdkKey).build()} and share it.
+ * The Barricador Java Server SDK entrypoint. Build one per process via
+ * {@code BarricadorClient.builder(sdkKey).build()} and share it.
  *
  * <h2>Zero-impact guarantee</h2>
  * Evaluation ({@link #isEnabled}, {@link #stringVariation}, …) is a synchronous in-memory lookup and
@@ -32,11 +32,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * SSE stream; telemetry is aggregated in memory and flushed by a background worker. Any backend
  * outage degrades gracefully to the last cached ruleset, then to the caller-supplied default.
  */
-public final class BarricatorClient implements AutoCloseable {
+public final class BarricadorClient implements AutoCloseable {
 
-    private static final Logger log = LoggerFactory.getLogger(BarricatorClient.class);
+    private static final Logger log = LoggerFactory.getLogger(BarricadorClient.class);
 
-    private final BarricatorConfig config;
+    private final BarricadorConfig config;
     private final FlagStore store = new FlagStore();
     private final EvaluationEngine engine = new EvaluationEngine();
     private final MetricsBuffer metrics = new MetricsBuffer();
@@ -46,7 +46,7 @@ public final class BarricatorClient implements AutoCloseable {
     private final ScheduledExecutorService scheduler;
     private final AtomicBoolean closed = new AtomicBoolean(false);
 
-    private BarricatorClient(BarricatorConfig config) {
+    private BarricadorClient(BarricadorConfig config) {
         this.config = config;
         HttpClient httpClient = HttpClient.newBuilder()
                 .connectTimeout(config.connectTimeout())
@@ -57,13 +57,13 @@ public final class BarricatorClient implements AutoCloseable {
         start();
     }
 
-    public static BarricatorConfig.Builder builder(String sdkKey) {
-        return new BarricatorConfig.Builder(sdkKey);
+    public static BarricadorConfig.Builder builder(String sdkKey) {
+        return new BarricadorConfig.Builder(sdkKey);
     }
 
-    /** Package-visible bridge so {@code BarricatorConfig.Builder.build()-style} usage stays fluent. */
-    public static BarricatorClient create(BarricatorConfig config) {
-        return new BarricatorClient(config);
+    /** Package-visible bridge so {@code BarricadorConfig.Builder.build()-style} usage stays fluent. */
+    public static BarricadorClient create(BarricadorConfig config) {
+        return new BarricadorClient(config);
     }
 
     private void start() {
@@ -134,10 +134,10 @@ public final class BarricatorClient implements AutoCloseable {
                 resp.flags.forEach(f -> map.put(f.key, f));
             }
             store.replaceAll(map, resp.rulesVersion);
-            log.debug("Barricator bootstrap complete: {} flags (v{})", map.size(), resp.rulesVersion);
+            log.debug("Barricador bootstrap complete: {} flags (v{})", map.size(), resp.rulesVersion);
         } catch (Exception e) {
             // Never fatal: keep serving cached state (or defaults if first bootstrap failed).
-            log.warn("Barricator bootstrap failed ({}); serving {} cached flags / defaults",
+            log.warn("Barricador bootstrap failed ({}); serving {} cached flags / defaults",
                     e.getMessage(), store.isInitialized() ? "last" : "no");
         }
     }
@@ -177,7 +177,7 @@ public final class BarricatorClient implements AutoCloseable {
 
     private ThreadFactory daemonFactory() {
         return r -> {
-            Thread t = new Thread(r, "barricator-metrics");
+            Thread t = new Thread(r, "barricador-metrics");
             t.setDaemon(true);
             return t;
         };

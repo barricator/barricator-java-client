@@ -1,14 +1,14 @@
-package com.barricator.client;
+package com.barricador.client;
 
-import com.barricator.client.internal.EvaluationEngine;
-import com.barricator.client.internal.EvaluationResult;
-import com.barricator.client.internal.MurmurHash3;
-import com.barricator.client.model.FlagModels.Clause;
-import com.barricator.client.model.FlagModels.FeatureFlag;
-import com.barricator.client.model.FlagModels.Rollout;
-import com.barricator.client.model.FlagModels.Rule;
-import com.barricator.client.model.FlagModels.Variation;
-import com.barricator.client.model.FlagModels.WeightedVariation;
+import com.barricador.client.internal.EvaluationEngine;
+import com.barricador.client.internal.EvaluationResult;
+import com.barricador.client.internal.MurmurHash3;
+import com.barricador.client.model.FlagModels.Clause;
+import com.barricador.client.model.FlagModels.FeatureFlag;
+import com.barricador.client.model.FlagModels.Rollout;
+import com.barricador.client.model.FlagModels.Rule;
+import com.barricador.client.model.FlagModels.Variation;
+import com.barricador.client.model.FlagModels.WeightedVariation;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

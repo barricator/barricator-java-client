@@ -1,6 +1,6 @@
-package com.barricator.client.internal;
+package com.barricador.client.internal;
 
-import com.barricator.client.model.FlagModels.FeatureFlag;
+import com.barricador.client.model.FlagModels.FeatureFlag;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package com.barricator.client.internal;
+package com.barricador.client.internal;
 
-import com.barricator.client.model.FlagModels.FeatureFlag;
+import com.barricador.client.model.FlagModels.FeatureFlag;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -41,7 +41,7 @@ public final class StreamSynchronizer {
 
     public void start() {
         if (running.compareAndSet(false, true)) {
-            thread = new Thread(this::runLoop, "barricator-sse");
+            thread = new Thread(this::runLoop, "barricador-sse");
             thread.setDaemon(true);
             thread.start();
         }

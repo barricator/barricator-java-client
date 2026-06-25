@@ -1,21 +1,21 @@
-# barricator-java-client
+# barricador-java-client
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.barricator/barricator-java-client?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.barricator/barricator-java-client)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.barricador/barricador-java-client?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.barricador/barricador-java-client)
 
-Production-grade **Java Server SDK** for Barricator. Java 21, Jackson + the JDK `HttpClient` (no
+Production-grade **Java Server SDK** for Barricador. Java 21, Jackson + the JDK `HttpClient` (no
 heavy transitive deps).
 
 ## Install
 
 Gradle:
 ```groovy
-implementation 'io.github.barricator:barricator-java-client:0.1.1'
+implementation 'io.github.barricador:barricador-java-client:0.1.1'
 ```
 Maven:
 ```xml
 <dependency>
-  <groupId>io.github.barricator</groupId>
-  <artifactId>barricator-java-client</artifactId>
+  <groupId>io.github.barricador</groupId>
+  <artifactId>barricador-java-client</artifactId>
   <version>0.1.1</version>
 </dependency>
 ```
@@ -36,8 +36,8 @@ Maven:
 ## Usage
 
 ```java
-try (BarricatorClient client = BarricatorClient.builder("sdk-srv-...")
-        .baseUrl("https://app.barricator.com")
+try (BarricadorClient client = BarricadorClient.builder("sdk-srv-...")
+        .baseUrl("https://app.barricador.com")
         .build()) {
 
     UserContext user = UserContext.builder("user-123")
@@ -63,6 +63,6 @@ try (BarricatorClient client = BarricatorClient.builder("sdk-srv-...")
 
 | Package | Responsibility |
 |---------|----------------|
-| `com.barricator.client` | Public API: `BarricatorClient`, `BarricatorConfig`, `UserContext` |
+| `com.barricador.client` | Public API: `BarricadorClient`, `BarricadorConfig`, `UserContext` |
 | `…client.internal` | `EvaluationEngine`, `FlagStore`, `StreamSynchronizer`, `HttpTransport`, `MetricsBuffer`, `MurmurHash3` |
 | `…client.model` | Wire-format ruleset models |

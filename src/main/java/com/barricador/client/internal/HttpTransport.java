@@ -1,7 +1,7 @@
-package com.barricator.client.internal;
+package com.barricador.client.internal;
 
-import com.barricator.client.BarricatorConfig;
-import com.barricator.client.model.FlagModels.BootstrapResponse;
+import com.barricador.client.BarricadorConfig;
+import com.barricador.client.model.FlagModels.BootstrapResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URI;
@@ -20,11 +20,11 @@ import java.util.Map;
  */
 public final class HttpTransport {
 
-    private final BarricatorConfig config;
+    private final BarricadorConfig config;
     private final ObjectMapper mapper;
     private final HttpClient httpClient;
 
-    public HttpTransport(BarricatorConfig config, ObjectMapper mapper, HttpClient httpClient) {
+    public HttpTransport(BarricadorConfig config, ObjectMapper mapper, HttpClient httpClient) {
         this.config = config;
         this.mapper = mapper;
         this.httpClient = httpClient;
@@ -34,7 +34,7 @@ public final class HttpTransport {
         return httpClient;
     }
 
-    BarricatorConfig config() {
+    BarricadorConfig config() {
         return config;
     }
 

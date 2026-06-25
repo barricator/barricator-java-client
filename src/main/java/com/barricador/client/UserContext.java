@@ -1,4 +1,4 @@
-package com.barricator.client;
+package com.barricador.client;
 
 import java.util.Collections;
 import java.util.HashMap;
